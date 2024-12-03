@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   output: 'export',
   assetPrefix: './',
   trailingSlash: true,
+  basePath: '/product-list-cart', // Add your repo name here
 };
 
 export default nextConfig;

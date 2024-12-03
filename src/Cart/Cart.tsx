@@ -19,7 +19,10 @@ export const Cart = () => {
       </h2>
       {cartItems.length === 0 ? (
         <div className='flex flex-col items-center justify-center'>
-          <img src='/images/empty-cart.svg' alt='Empty cart' />
+          <img
+            src='/product-list-cart/images/empty-cart.svg'
+            alt='Empty cart'
+          />
           <p>Your cart is empty.</p>
         </div>
       ) : (

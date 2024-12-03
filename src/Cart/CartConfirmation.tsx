@@ -31,7 +31,7 @@ const CartConfirmation: React.FC<CartConfirmationProps> = ({
       <div>
         {/* Header */}
         <img
-          src='/images/icon-order-confirmed.svg'
+          src='/product-list-cart/images/icon-order-confirmed.svg'
           alt='Order Confirmed'
           className='w-6'
         />
