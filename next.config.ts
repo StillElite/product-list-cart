@@ -5,8 +5,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: 'export',
-  assetPrefix: isProduction ? '/product-list-cart/' : undefined, // Adjust for GitHub Pages
-  basePath: isProduction ? '/product-list-cart' : '', // Adjust for GitHub Pages
+  assetPrefix: '/product-list-cart/',
+  basePath: '/product-list-cart',
   trailingSlash: true,
 };
 

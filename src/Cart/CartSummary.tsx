@@ -20,7 +20,10 @@ export const CartSummary: React.FC<CartSummaryProps> = ({ cartItems }) => {
         <span className='font-semibold'>{formatPrice(orderTotal)}</span>
       </div>
       <div className='bg-orange-50 rounded-md p-4 flex justify-center'>
-        <img src='/images/icon-carbon-neutral.svg' alt='Carbon neutral' />
+        <img
+          src='/product-list-cart/images/icon-carbon-neutral.svg'
+          alt='Carbon neutral'
+        />
         <p className='text-sm pl-2'>
           This is a <span className='font-semibold'>carbon-neutral </span>
           delivery
