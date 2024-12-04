@@ -4,7 +4,7 @@ const HomePage = () => {
   return (
     <div className='relative bg-orange-50 min-h-screen'>
       <div
-        className="absolute inset-0 bg-cover bg-center bg-[url('/images/banner.jpg')]"
+        className="absolute inset-0 bg-cover bg-center bg-[url('/product-list-cart/images/banner.jpg')]"
         role='img'
         aria-label='Vineyard Store'
       ></div>
