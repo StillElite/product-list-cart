@@ -4,17 +4,29 @@ Modal.setAppElement('#__next');
 
 import { formatPrice } from '@/utils/formatPrice';
 import { useCart } from '@/CartContext';
+import { useEffect } from 'react';
 
 interface CartConfirmationProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+const useDisableBodyScroll = (isOpen: boolean) => {
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+};
+
 const CartConfirmation: React.FC<CartConfirmationProps> = ({
   isOpen,
   onClose,
 }) => {
   const { cartItems, clearCart } = useCart();
+
+  useDisableBodyScroll(isOpen);
 
   const orderTotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -24,8 +36,9 @@ const CartConfirmation: React.FC<CartConfirmationProps> = ({
   return (
     <Modal
       isOpen={isOpen}
-      onRequestClose={onClose}
-      className='bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto mt-20'
+      shouldCloseOnOverlayClick={false}
+      preventScroll={true}
+      className='bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto'
       overlayClassName='fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center'
     >
       <div>
@@ -35,8 +48,10 @@ const CartConfirmation: React.FC<CartConfirmationProps> = ({
           alt='Order Confirmed'
           className='w-6'
         />
-        <h2 className='text-xl font-bold pt-3 pb-1'>Order Confirmed</h2>
-        <p className='text-xs text-gray-500 mb-6'>
+        <h2 id='order-confirmation-title' className='text-xl font-bold'>
+          Order Confirmed
+        </h2>
+        <p id='order-confirmation-description' className='text-gray-500'>
           We hope you enjoy your purchase!
         </p>
 
